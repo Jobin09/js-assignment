@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 3</title>
+</head>
+<body>
+	<h2>Assignment 3</h2>
+
+	<p id="demo"></p>
+	<p id="demo1"></p>
+	<p id="demo2"></p>
+	<p id="demo3"></p>
+
+	<script>
+		var date = new Date();
+		document.getElementById("demo").innerHTML = ""+date.getMonth()+"-"+date.getDate()+"-"+date.getFullYear()+"";
+		document.getElementById("demo1").innerHTML = ""+date.getMonth()+"/"+date.getDate()+"/"+date.getFullYear()+"";
+		document.getElementById("demo2").innerHTML = ""+date.getDate()+"-"+date.getMonth()+"-"+date.getFullYear()+"";
+		document.getElementById("demo3").innerHTML = ""+date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear()+"";
+		
+	</script>
+</body>
+</html>
