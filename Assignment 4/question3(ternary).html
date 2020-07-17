@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Question 3 (Ternary statement)</title>
+    </head>
+    <body>
+        <script>
+            let marks=prompt("Enter Your Marks","");
+            let result = (marks<0 || marks>100) ? 'Wrong Entry': 
+                        (marks<50) ? "Marks are "+marks+" and grade is F":
+                        (marks>=50 && marks<60) ? "Marks are "+marks+" and grade is D":
+                        (marks>=60 && marks<70) ? "Marks are "+marks+" and grade is C":
+                        (marks>=70 && marks<80) ? "Marks are "+marks+" and grade is B":
+                        (marks>=80 && marks<90) ? "Marks are "+marks+" and grade is A":
+                        "Marks are "+marks+" and grade is A+";
+                        console.log(result);
+        </script>
+    </body>
+</html>
