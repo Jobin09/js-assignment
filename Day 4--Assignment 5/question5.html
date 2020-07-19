@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            let sales=prompt("Enter Your Employees Sales");
+            if(sales<0)
+            {
+                console.log("Wrong Entry");
+            }
+            else if(0>sales && sales<=5000)
+            {
+                console.log("Commission earned 2%");
+            }
+            else if(5001>=sales && sales<=10000)
+            {
+                console.log("Commission earned 5%");
+            }
+            else if(10001>=sales && sales<=20000)
+            {
+                console.log("Commission earned 7%");
+            }
+            else if(sales>20000)
+            {
+                console.log("Commission earned 10%");
+            }
+    </script>
+</body>
+</html>

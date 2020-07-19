@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let operation=prompt("Select The Operation: 1.add 2.sub 3.multi 4.div 5.square root 6.percentage");
+
+        switch(operation)
+        {
+            case '1':
+            var a=Number(prompt("Enter The 1st Number"));
+            var b=Number(prompt("Enter The 2nd Number"));
+            
+            console.log(a+b);
+            break;
+            
+            case '2':
+            let c=prompt("Enter The 1st Number");
+            let d=prompt("Enter The 2nd Number");
+            res=c - d;
+            console.log(res);
+            break;
+
+            case '3':
+            let e=prompt("Enter The 1st Number");
+            let f=prompt("Enter The 2nd Number");
+            res=e * f;
+            console.log(res);
+            break;
+
+            case '4':
+            let g=prompt("Enter The 1st Number");
+            let h=prompt("Enter The 2nd Number");
+            res=g / h;
+            console.log(res);
+            break;
+
+            case '5':
+            let x=prompt("Enter The Number");
+            res=Math.sqrt(x);
+            console.log(res);
+            break;
+
+            case '6':
+            let num=prompt("Enter The Number");
+            let per=prompt("Enter The Number");
+            res=(num/100)*per;
+            console.log(res);
+            break;
+        }
+        
+    </script>
+</body>
+</html>
