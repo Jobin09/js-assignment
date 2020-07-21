@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Question 2</title>
+    </head>
+    <body>
+        <script>
+            class User {
+                constructor(name, age,email) {
+                this.name = name;
+                this.age = age;
+                this.email = email;
+                this.coins = 0;
+                this.courses = [];
+                }
+
+                static greet(){
+                    console.log("Hello There");
+                }
+
+                login(){
+                    console.log(`${this.name} has logged in`);
+                    return this;
+                }
+                logout(){
+                    console.log(`${this.name} has logged out`);
+                    return this;
+                }
+            }
+
+            class Moderator extends User{
+                constructor(name,age,email){
+                    super(name,age,email);
+                }
+
+                addcoins(){
+                    this.coins++;
+                    console.log(`${this.name} has ${this.coins} coins`);
+                    return this;
+                }
+
+                removecoins(){
+                    this.coins--;
+                    console.log(`${this.name} has ${this.coins} coins`);
+                    return this;
+                }
+            }
+
+            class Admin extends Moderator{
+                addCourse(user,course){
+                    user.courses.push(course);
+                    console.log(user);
+                }
+
+                removeCourse(user,course){
+                    user.courses.pop(course);
+                    console.log(user);
+                }
+            }
+
+            let user1 = new User('Alex',21,'alex@gmail.com')
+            let user2 = new User('John',20,'john@gmai.com')
+            let mod = new Moderator('Rob',26,'rob@gmail.com','Moderator');
+            let admin = new Admin('Samuel',19,'sam@gmail.com');
+            let users = [user1,user2,mod,admin];
+
+            users.forEach(array => {
+                console.log(array);
+            });
+
+            User.greet();
+
+            user1.login();
+            user1.logout();
+
+            mod.addcoins();
+            mod.removecoins();
+            mod.login();
+            mod.logout();
+
+            admin.login();
+            admin.addcoins();
+            admin.removecoins();
+            admin.addCourse(user1,'Javascript');
+            admin.addCourse(user1,'Python');
+
+            admin.addCourse(mod,'Javascript');
+            admin.addCourse(admin,'Javascript');
+
+            admin.removeCourse(user1,'Python');
+            admin.logout();
+        </script>
+    </body>
+</html>

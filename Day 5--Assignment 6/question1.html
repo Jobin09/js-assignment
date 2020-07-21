@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 1</title>
+</head>
+<body>
+    <script>
+        let Array = [];
+        let size = prompt('Enter the number:');
+
+        for(let i=0; i<size; i++){
+            Array[i] =(i+1);
+        }
+        console.log(Array);
+
+        let odd = Array.filter(el=>(el%2==!0));
+        console.log(odd);
+
+        let cubes = Array.filter(el=>(el%2==!0)).map(el=>el**3);
+        console.log(cubes);
+    </script>
+</body>
+</html>
