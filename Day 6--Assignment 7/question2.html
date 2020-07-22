@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 2</title>
+</head>
+<body>
+
+    <h1>MULTIPLICATION TABLE</h1>
+    <p id="multiply"></p>
+
+    <script>
+        let num = prompt("Enter The Number:");
+        let n = prompt("Till");
+
+            if(!isNaN(num) && !isNaN(n) && num>0 && n>0) {
+                let table="";
+                let total="";
+                for(i = 1 ; i<= n ; i++) {
+                    total = num * i;
+                    table +=  num + " × " + i + " = " + total + "<br/>";
+                }
+                document.getElementById("multiply").innerHTML = table;
+            }
+            else {
+                alert("Please Enter a valid Number");
+            }
+        
+    </script>
+</body>
+</html>
