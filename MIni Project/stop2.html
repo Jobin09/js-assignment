@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>STOP WATCH</title>
+    </head>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        #container {
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            padding: 5px;
+        }
+
+        #container2,#container3{
+            padding: 5px;
+        }
+
+        input[type=number]{
+            padding: 5px;
+            padding-left: 20px;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            font-size: 150px;
+            border-radius: 50px;
+            outline: none;
+        }
+
+        button{
+            padding: 20px;
+            width: 200px;
+            font-size: 40px;
+            border-radius: 50px;
+            outline: none;
+        }
+
+        #sep{
+            position: relative;
+            top: -20px;
+            font-size: 150px;
+            padding-top: 50px;
+        }
+
+        #sta{
+            background-color: rgb(43, 228, 74);
+            border: 0.5ps solid rgb(43, 228, 74);
+        }
+
+        #sto{
+            background-color: rgb(248, 37, 37);
+            border: 0.5ps solid rgb(248, 37, 37);
+        }
+
+        #res{
+            background-color: rgb(53, 194, 250);
+            border: 0.5ps solid rgb(53, 194, 250);
+        }
+    </style>
+
+    <body>
+        <div id="container">
+            <div id="container2">
+                <input type="number" id="hr" placeholder="00"  /><label id="sep">:</label>
+                <input type="number" id="min" placeholder="00"  /><label id="sep">:</label>
+                <input type="number" id="sec" placeholder="00" />
+            </div>
+            <div id="container3">
+                <button id="sta" onclick="start();">Start</button>
+                <button id="sto" onclick="stop();">Stop</button>
+                <button id="res" onclick="reset();">Reset</button>
+            </div>
+        </div>
+        
+      <script>
+            var interval;
+            var timer;
+            let minvalue = document.getElementById('min');
+            let secvalue = document.getElementById('sec');
+            let hrvalue = document.getElementById('hr');
+            let disablebtn = document.getElementById('sta');
+            var count;
+            
+            function start() {
+                if(!interval){
+                    var minutes = parseInt(minvalue.value) || 0;
+                    var seconds = parseInt(secvalue.value) || 0;
+                    var hours = parseInt(hrvalue.value) || 0;
+                    count = (3600 * hours) + (minutes * 60) + seconds;
+                    interval = setInterval(run, 1000);
+                    disablebtn.disabled = true
+                }else{
+                    timer = setInterval(run, 1000);
+                    disablebtn.disabled = true;
+                }
+            }
+
+            function run(){
+
+                var hr = Math.floor(count / 3600);
+                var min = Math.floor(count / 60) - hr * 60;
+                var sec = count - (min * 60 + hr * 3600);
+
+                console.log(hr)
+                console.log(min)
+                console.log(sec)
+                
+                hrvalue.value = hr<10? '0'+hr : hr;
+                minvalue.value = min<10? '0'+min : min;
+                secvalue.value = sec<10? '0'+sec : sec;
+        
+                count--;
+
+                if(min == 0 && sec == 0 && hr == 0){
+                    clearInterval(interval)
+                    
+                    minvalue.value = '';
+                    secvalue.value = '';
+                    hrvalue.value = '';
+                    location.reload();
+                }
+            }
+
+            function stop() {
+                clearInterval(interval);
+                clearInterval(timer);
+                disablebtn.disabled = false;
+            }
+
+            function reset() {
+                location.reload();
+            }
+      </script>
+
+    </body>
+</html>
